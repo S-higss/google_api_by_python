@@ -1,2 +1,2 @@
-client_secret_private.json
-config_private.json
+./data/client_secret_private.json
+./lib/config_private.json
