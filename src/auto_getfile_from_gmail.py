@@ -78,7 +78,9 @@ def job():
     # Set the time range from the current time to 10 minutes ago
     now = datetime.datetime.now()
     ten_minutes_ago = now - datetime.timedelta(minutes=10)
-    query = f"subject:{subject} after:{ten_minutes_ago.strftime('%Y/%m/%d')}"
+    now_timestamp = int(now.timestamp())
+    ten_minutes_ago_timestamp = int(ten_minutes_ago.timestamp())
+    query = f"subject:{subject} after:{ten_minutes_ago_timestamp} before:{now_timestamp}"
 
     try:
         service = build("gmail", "v1", credentials=creds)
