@@ -1,0 +1,5 @@
+[googleapi]
+    id = "your_account_name@gmail.com"
+    password = "your_password" 
+    client_secret = "./data/client_secret.json"
+    token = "./data/token.json"
