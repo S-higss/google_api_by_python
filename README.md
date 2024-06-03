@@ -16,7 +16,7 @@ This is repository for using Google API by Python
     - google-api-core
     - googleapis-common-protos
 
- ## How to use
+## How to use
 1. You can install python libraries by this command:
     ```bash
     make install
@@ -25,4 +25,7 @@ This is repository for using Google API by Python
     ```bash
     make run
     ```
+
+## License
+**google_api_by_python** licensed under [MIT license](https://github.com/S-higss/google_api_by_python/blob/main/LICENSE). Basically you can do whatever you want to with it.
     
