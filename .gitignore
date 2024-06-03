@@ -1,2 +1,2 @@
-./data/client_secret_private.json
-./lib/config_private.json
+client_secret_private.json
+config_private.toml
