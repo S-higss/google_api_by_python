@@ -1,4 +1,5 @@
 # google_auth.py
+from pathlib import Path
 from domain.consts import SystemConstants
 from lib.config import load_config
 from google.auth.transport.requests import Request
@@ -7,8 +8,8 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 config = load_config(SystemConstants.config)
 
 # Where to store tokens and credentials
-token_save_path = config["googleapi"]["token"]
-cred_json = config["googleapi"]["client_secret"]
+token_save_path = Path(config["googleapi"]["token"])
+cred_json = Path(config["googleapi"]["client_secret"])
 
 # Functions for obtaining credentials
 def get_cledential(scopes: list[str]) -> Credentials:

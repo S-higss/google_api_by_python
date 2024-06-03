@@ -1,2 +1,4 @@
+*.zip
 client_secret_private.json
+token_private.json
 config_private.toml
