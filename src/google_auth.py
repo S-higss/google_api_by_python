@@ -1,4 +1,5 @@
 # google_auth.py
+import os
 from pathlib import Path
 from domain.consts import SystemConstants
 from lib.config import load_config
@@ -8,8 +9,9 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 config = load_config(SystemConstants.config)
 
 # Where to store tokens and credentials
-token_save_path = Path(config["googleapi"]["token"])
 cred_json = Path(config["googleapi"]["client_secret"])
+token_save_path_gmail = Path(config["gmail"]["token"])
+token_save_path_drive = Path(config["drive"]["token"])
 
 # Functions for obtaining credentials
 def get_cledential(scopes: list[str]) -> Credentials:
@@ -23,12 +25,24 @@ def get_cledential(scopes: list[str]) -> Credentials:
     return:
     Authentication information
     """
+    if "gmail" in scopes[0]:
+        token_save_path = token_save_path_gmail
+    elif "drive" in scopes[0]:
+        token_save_path = token_save_path_drive
+    else:
+        print("Error on getting token_save_path")
+        return None
+    
     creds = None
     if token_save_path.exists():
         creds = Credentials.from_authorized_user_file(token_save_path, scopes)
     if not creds or not creds.valid:
         if creds and creds.expired and creds.refresh_token:
-            creds.refresh(Request())
+            try:
+                creds.refresh(Request())
+            except Exception:
+                os.remove(config["googleapi"]["token"])
+                get_cledential(scopes)
         else:
             flow = InstalledAppFlow.from_client_secrets_file(cred_json, scopes)
             creds = flow.run_local_server(port=0)

@@ -1,4 +1,6 @@
 *.zip
+__pycache__
 client_secret_private.json
-token_private.json
+token_private_gmail.json
+token_private_drive.json
 config_private.toml
