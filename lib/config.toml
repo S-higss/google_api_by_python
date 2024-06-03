@@ -2,11 +2,12 @@
     id = "{your_account_name}@gmail.com"
     password = "{your_password}" 
     client_secret = "./data/confidential/client_secret.json"
-    token = "./data/confidential/token.json"
 [drive]
+    token = "./data/confidential/token_drive.json"
     url = "https://www.googleapis.com/auth/drive"
     folder_id = "{your_folder_in_google_drive}"
 [gmail]
+    token = "./data/confidential/token_gmail.json"
     url_readonly = "https://www.googleapis.com/auth/gmail.readonly"
     subject = "{your_mail_subject}"
     save_dir = "{your_save_directory}"

@@ -111,27 +111,31 @@ class Drive:
 def main():
     config = load_config(SystemConstants.config)
     drive = Drive()
+    mode = ""
 
-    mode = input(
-        "Input the number you want to do.\n"
-        + "1: Get files list\n"
-        + "2: Create folder\n"
-        + "3: Upload files\n"
-        + "4: Delete files\n"
-        + "Other number: Exit\n"
-        + "Enter: "
-    )
-    if mode == 1:
-        drive.list()
-    elif mode == 2:
-        name = input("enter folder name: ")
-        drive.create_folder(name)
-    elif mode == 3:
-        drive.upload("crawling.log", config["log"]["crawling"], config["drive"]["folder_id_test"])
-    elif mode == 4:
-        id = input("enter folder id you wanna delete: ")
-        drive.delete(id)
-    else: pass
+    while mode != 0:
+        mode = input(
+            "Input the number you want to do by using Drive API.\n"
+            + "1: Get files list\n"
+            + "2: Create folder\n"
+            + "3: Upload files\n"
+            + "4: Delete files\n"
+            + "0: Exit\n"
+            + "Enter: "
+        )
+        mode = int(mode)
+        if mode == 1:
+            print("These are files list in google drive.")
+            drive.list()
+        elif mode == 2:
+            name = input("enter folder name: ")
+            drive.create_folder(name)
+        elif mode == 3:
+            drive.upload("crawling.log", config["log"]["crawling"], config["drive"]["folder_id_test"])
+        elif mode == 4:
+            id = input("enter folder id you wanna delete: ")
+            drive.delete(id)
+        else: pass
 
 if __name__ == '__main__':
     main()

@@ -1,5 +1,6 @@
 from src.auto_getfile_from_gmail import job as gmail_job
 from src.auto_job import main as gmail_schedule
+from src.googledrive_operater import main as drive_main
 
 def main():
     mode = ""
@@ -20,7 +21,7 @@ def main():
         elif mode == 2:
             gmail_schedule()
         elif mode == 3:
-            gmail_schedule()
+            drive_main()
         else:
             pass
 
