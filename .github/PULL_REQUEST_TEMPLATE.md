@@ -1,15 +1,15 @@
 # Pull Request
 
-## 概要 :eyes:
+## Overview :eyes:
 
-fix #< issue 番号 >
+fix #< issue number >
 
-## 実装・変更の詳細 :speech_balloon:
+## Implementation/change details :speech_balloon:
 
-- < ここに詳細記述 >
+- <details_here>
 
-## チェックリスト :white_check_mark:
+## Checklist :white_check_mark:
 
-- [ ] コードは整形されているか．
-- [ ] Issue は解決されたか．
-- [ ] エラーは出ていないか．
+- [ ] Is the code formatted?
+- [ ] Is the issue resolved?
+- [ ] Are there any errors?
