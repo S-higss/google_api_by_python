@@ -21,5 +21,6 @@ class ConstantMeta(type):
 
 # A class for managing constants
 class SystemConstants(metaclass=ConstantMeta):
-    config = "config.toml"
+    # config = "./lib/config.toml"
+    config = "./lib/config_private.toml"
     encode = "utf-8"

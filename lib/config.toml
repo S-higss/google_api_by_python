@@ -1,5 +1,13 @@
 [googleapi]
-    id = "your_account_name@gmail.com"
-    password = "your_password" 
-    client_secret = "./data/client_secret.json"
-    token = "./data/token.json"
+    id = "{your_account_name}@gmail.com"
+    password = "{your_password}" 
+    client_secret = "./data/confidential/client_secret.json"
+    token = "./data/confidential/token.json"
+[drive]
+    url = "https://www.googleapis.com/auth/drive"
+    folder_id = "{your_folder_in_google_drive}"
+[gmail]
+    url_readonly = "https://www.googleapis.com/auth/gmail.readonly"
+    subject = "{your_mail_subject}"
+    save_dir = "{your_save_directory}"
+    zipfile_pattern = "{your_filename}.zip"
