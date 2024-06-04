@@ -7,6 +7,8 @@ This is repository for using Google API by Python
     - Enable the Gmail API and Drive API.
     - Create an OAuth 2.0 client ID and obtain a client ID and client secret.
     - Download the credentials into this system (./data/confidential/client_secret.json).
+    - __Reference__  
+      SAP Official Page: [Configure OAuth in Google Cloud Platform](https://developers.sap.com/tutorials/spa-configure-oauth-google-platform.html)
 
 - Install Python libraries:
     - google-auth
