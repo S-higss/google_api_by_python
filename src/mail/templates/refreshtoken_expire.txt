@@ -1,0 +1,4 @@
+Notice of Refresh Token Expiration
+
+Regarding the automatic log acquisition module, the Gmail API refresh token has expired.
+Please take action immediately on your browser.

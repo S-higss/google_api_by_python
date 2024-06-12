@@ -6,6 +6,14 @@
     token = "./data/confidential/token_drive.json"
     url = "https://www.googleapis.com/auth/drive"
     folder_id = "{your_folder_in_google_drive}"
+[mail]
+    from = "your email"
+    host = "smtp.gmail.com"
+    port = 465
+    password = "your password"
+    to = "your email"
+    subject = "Refresh Token Expire"
+    template = "./src/mail/templates/refreshtoken_expire.txt"
 [gmail]
     token = "./data/confidential/token_gmail.json"
     url_readonly = "https://www.googleapis.com/auth/gmail.readonly"

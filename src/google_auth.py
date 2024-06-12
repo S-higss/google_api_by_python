@@ -7,11 +7,20 @@ from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
 config = load_config(SystemConstants.config)
+from src.mail.mail import EmailController
 
 # Where to store tokens and credentials
 cred_json = Path(config["googleapi"]["client_secret"])
 token_save_path_gmail = Path(config["gmail"]["token"])
 token_save_path_drive = Path(config["drive"]["token"])
+
+def mail_sender(output=""):
+    with open(config["mail"]["template"], 'r', encoding=SystemConstants.encode) as f:
+        body = f.read()
+    notice_mail = EmailController(config["mail"]["from"], config["mail"]["host"], config["mail"]["port"], config["mail"]["password"])
+    body += output
+    notice_mail.create(config["mail"]["to"], config["mail"]["subject"], body)
+    notice_mail.send()
 
 # Functions for obtaining credentials
 def get_cledential(scopes: list[str]) -> Credentials:
@@ -42,6 +51,7 @@ def get_cledential(scopes: list[str]) -> Credentials:
                 creds.refresh(Request())
             except Exception:
                 os.remove(config["googleapi"]["token"])
+                mail_sender()
                 get_cledential(scopes)
         else:
             flow = InstalledAppFlow.from_client_secrets_file(cred_json, scopes)
